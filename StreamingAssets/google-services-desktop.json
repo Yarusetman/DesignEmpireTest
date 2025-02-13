@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "579873487680",
+    "firebase_url": "https://design-empire-b43bf-default-rtdb.firebaseio.com",
+    "project_id": "design-empire-b43bf",
+    "storage_bucket": "design-empire-b43bf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:579873487680:android:93afa7cc4a2b00966d58a5",
+        "android_client_info": {
+          "package_name": "flip.idle.build.wheel"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC3imxrTXd89YKh4krIaYUkbhRammBXV2U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,80 @@
+<linker>
+  <assembly fullname="Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="AnimationHandler" preserve="all" />
+    <type fullname="BezierSolution.SlotActionPoint" preserve="all" />
+    <type fullname="CameraScaler" preserve="all" />
+    <type fullname="DecorBootstraper" preserve="all" />
+    <type fullname="EnableIndexObjs" preserve="all" />
+    <type fullname="GenerateNamesFromFolder" preserve="all" />
+    <type fullname="ManualPriceProvider" preserve="all" />
+    <type fullname="ObjectTitleProvider" preserve="all" />
+    <type fullname="OrderDivisionPriceProvider" preserve="all" />
+    <type fullname="PickSpriteProvider" preserve="all" />
+    <type fullname="SequenceGenerator" preserve="all" />
+    <type fullname="SlotSetupSound" preserve="all" />
+    <type fullname="SlotView" preserve="all" />
+    <type fullname="TutorDecorBootstraper" preserve="all" />
+    <type fullname=".BlockedByObjects" preserve="nothing" serialized="true" />
+    <type fullname=".DefaultSlotObjects" preserve="nothing" serialized="true" />
+    <type fullname=".Epoch" preserve="nothing" serialized="true" />
+    <type fullname=".ObjectTitleProvider/KeyValueTitle" preserve="nothing" serialized="true" />
+    <type fullname=".PickSpriteProvider/PickSprites" preserve="nothing" serialized="true" />
+    <type fullname=".SlotObjects" preserve="nothing" serialized="true" />
+    <type fullname="BezierSolution.SlotActionPoint/ExtraData" preserve="nothing" serialized="true" />
+    <type fullname=".DecorObjConditions" preserve="nothing" serialized="true" />
+    <type fullname=".ObjCondition" preserve="nothing" serialized="true" />
+    <type fullname=".SlotSetupSound/SlotSound" preserve="nothing" serialized="true" />
+    <type fullname=".Condition" preserve="nothing" serialized="true" />
+    <type fullname=".ManualPriceProvider/SlotPrice" preserve="nothing" serialized="true" />
+  </assembly>
+  <assembly fullname="Unity.Addressables, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" preserve="all">
+    <type fullname="UnityEngine.AddressableAssets.Addressables" preserve="all" />
+  </assembly>
+  <assembly fullname="Unity.ResourceManager, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" preserve="all">
+    <type fullname="UnityEngine.ResourceManagement.ResourceProviders.AssetBundleProvider" preserve="all" />
+    <type fullname="UnityEngine.ResourceManagement.ResourceProviders.BundledAssetProvider" preserve="all" />
+    <type fullname="UnityEngine.ResourceManagement.ResourceProviders.InstanceProvider" preserve="all" />
+    <type fullname="UnityEngine.ResourceManagement.ResourceProviders.SceneProvider" preserve="all" />
+  </assembly>
+  <assembly fullname="UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.Animation" preserve="all" />
+    <type fullname="UnityEngine.AnimationClip" preserve="all" />
+    <type fullname="UnityEngine.Animator" preserve="all" />
+    <type fullname="UnityEngine.RuntimeAnimatorController" preserve="all" />
+  </assembly>
+  <assembly fullname="UnityEngine.AudioModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.AudioListener" preserve="all" />
+  </assembly>
+  <assembly fullname="UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.Camera" preserve="all" />
+    <type fullname="UnityEngine.FlareLayer" preserve="all" />
+    <type fullname="UnityEngine.GameObject" preserve="all" />
+    <type fullname="UnityEngine.Material" preserve="all" />
+    <type fullname="UnityEngine.Object" preserve="all" />
+    <type fullname="UnityEngine.RectTransform" preserve="all" />
+    <type fullname="UnityEngine.Rendering.SortingGroup" preserve="all" />
+    <type fullname="UnityEngine.Shader" preserve="all" />
+    <type fullname="UnityEngine.Sprite" preserve="all" />
+    <type fullname="UnityEngine.SpriteRenderer" preserve="all" />
+    <type fullname="UnityEngine.Texture2D" preserve="all" />
+    <type fullname="UnityEngine.Transform" preserve="all" />
+    <type fullname="UnityEngine.U2D.SpriteAtlas" preserve="all" />
+    <type fullname="UnityEngine.Events.PersistentCallGroup" preserve="nothing" serialized="true" />
+  </assembly>
+  <assembly fullname="UnityEngine.Physics2DModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.PolygonCollider2D" preserve="all" />
+  </assembly>
+  <assembly fullname="UnityEngine.PhysicsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.BoxCollider" preserve="all" />
+  </assembly>
+  <assembly fullname="UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.UI.CanvasScaler" preserve="all" />
+    <type fullname="UnityEngine.UI.GraphicRaycaster" preserve="all" />
+    <type fullname="UnityEngine.UI.Image" preserve="all" />
+    <type fullname="UnityEngine.UI.MaskableGraphic/CullStateChangedEvent" preserve="nothing" serialized="true" />
+  </assembly>
+  <assembly fullname="UnityEngine.UIModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.Canvas" preserve="all" />
+    <type fullname="UnityEngine.CanvasRenderer" preserve="all" />
+  </assembly>
+</linker>
