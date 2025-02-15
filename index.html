@@ -11,10 +11,19 @@
 	<script>
 		vkBridge.send("VKWebAppInit");
 		
-		function CheckStartComplete ()
-	    {
-		  console.log("[VKSDK] Start complete!");
-	    }
+		function showInterstitialAds ()
+		{
+			console.log("[VKSDK] Show interstitial ADS");
+      
+			vkBridge.send('VKWebAppShowNativeAds', {ad_format: 'interstitial'})
+				.then((data) => {
+					if (data.resul)
+						console.log("[VKSDK] Interstitial success");
+					else
+					console.log("[VKSDK] Interstitial failed");
+				})
+				.catch((error) => {console.log(error); });
+	  }
 	</script>
   </head>
   <body>
