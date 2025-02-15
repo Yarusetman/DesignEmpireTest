@@ -23,7 +23,10 @@
         <div id="unity-build-title">Makeover Empire</div>
       </div>
     </div>	
+	<script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
     <script>
+	  vkBridge.send("VKWebAppInit");
+		
       var canvas = document.querySelector("#unity-canvas");
 
       // Shows a temporary message banner/ribbon for a few seconds, or
@@ -122,15 +125,9 @@
 
       document.body.appendChild(script);
 
-    </script>
-	<script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    </script>	
 	<script>		
-		var unityInstance = UnityLoader.instantiate("unityContainer", "Build/Vk_build.json", {onProgress: UnityProgress});		
-		
-		jQuery(document).ready(function($)  {  
-			vkBridge.send("VKWebAppInit");
-		});
+		var unityInstance = UnityLoader.instantiate("unityContainer", "Build/Vk_build.json", {onProgress: UnityProgress});				
 		
 		function CheckStartComplete ()
 		{
