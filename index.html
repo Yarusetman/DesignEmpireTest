@@ -5,7 +5,17 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Unity Web Player | Makeover Empire</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
-    <link rel="stylesheet" href="TemplateData/style.css">
+    <link rel="stylesheet" href="TemplateData/style.css">	
+	
+	<script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
+	<script>
+		vkBridge.send("VKWebAppInit");
+		
+		function CheckStartComplete ()
+	    {
+		  console.log("[VKSDK] Start complete!");
+	    }
+	</script>
   </head>
   <body>
     <div id="unity-container" class="unity-desktop">
@@ -22,11 +32,8 @@
         <div id="unity-fullscreen-button"></div>
         <div id="unity-build-title">Makeover Empire</div>
       </div>
-    </div>
-	<script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
-    <script>
-	  vkBridge.send("VKWebAppInit");
-	  
+    </div>	
+    <script>	  
       var canvas = document.querySelector("#unity-canvas");
 
       // Shows a temporary message banner/ribbon for a few seconds, or
@@ -123,12 +130,7 @@
               });
             };
 
-      document.body.appendChild(script);
-
-	  function CheckStartComplete ()
-	  {
-		console.log("[VKSDK] Start complete!");
-	  }
+      document.body.appendChild(script);	 
     </script>
   </body>
 </html>
