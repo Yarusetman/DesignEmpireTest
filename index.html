@@ -22,11 +22,8 @@
         <div id="unity-fullscreen-button"></div>
         <div id="unity-build-title">Makeover Empire</div>
       </div>
-    </div>
-	<script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
+    </div>	
     <script>
-	  vkBridge.send("VKWebAppInit", {});
-	
       var canvas = document.querySelector("#unity-canvas");
 
       // Shows a temporary message banner/ribbon for a few seconds, or
@@ -55,12 +52,12 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/DesignEmpireTest.loader.js";
+      var loaderUrl = buildUrl + "/Vk.loader.js";
       var config = {
         arguments: [],
-        dataUrl: buildUrl + "/DesignEmpireTest.data.unityweb",
-        frameworkUrl: buildUrl + "/DesignEmpireTest.framework.js.unityweb",
-        codeUrl: buildUrl + "/DesignEmpireTest.wasm.unityweb",
+        dataUrl: buildUrl + "/Vk.data.br",
+        frameworkUrl: buildUrl + "/Vk.framework.js.br",
+        codeUrl: buildUrl + "/Vk.wasm.br",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "gaminggames",
         productName: "Makeover Empire",
@@ -126,5 +123,19 @@
       document.body.appendChild(script);
 
     </script>
+	<script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+	<script>		
+		var unityInstance = UnityLoader.instantiate("unityContainer", "Build/Vk_build.json", {onProgress: UnityProgress});		
+		
+		jQuery(document).ready(function($)  {  
+			vkBridge.send("VKWebAppInit");
+		});
+		
+		function CheckStartComplete ()
+		{
+			alert ("[VKSDK] Start complete!");
+		}
+	</script>
   </body>
 </html>
