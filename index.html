@@ -125,14 +125,10 @@
 
       document.body.appendChild(script);
 
+	  function CheckStartComplete ()
+	  {
+		console.log("[VKSDK] Start complete!");
+	  }
     </script>
-	<script>		
-		var unityInstance = UnityLoader.instantiate("unityContainer", "Build/Vk_build.json", {onProgress: UnityProgress});				
-		
-		function CheckStartComplete ()
-		{
-			console.log ("[VKSDK] Start complete!");
-		}
-	</script>
   </body>
 </html>
