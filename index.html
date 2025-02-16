@@ -6,25 +6,40 @@
     <title>Unity Web Player | Makeover Empire</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
-	
-	<script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
-	<script>
-		vkBridge.send("VKWebAppInit");
-		
-		function showInterstitialAds ()
-		{
-			console.log("[VKSDK] Show interstitial ADS");
-      
-			vkBridge.send('VKWebAppShowNativeAds', {ad_format: 'interstitial'})
-				.then((data) => {
-					if (data.resul)
-						console.log("[VKSDK] Interstitial success");
-					else
-					console.log("[VKSDK] Interstitial failed");
-				})
-				.catch((error) => {console.log(error); });
-	  }
-	</script>
+    <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
+  	<script>
+  		vkBridge.send("VKWebAppInit");
+
+  		function showInterstitialAds ()
+  	  {
+  		  console.log("[VKSDK] Show interstitial ADS");
+
+        unityI.SendMessage('VKSDK', 'InterstitialStart');
+        vkBridge.send('VKWebAppShowNativeAds', {ad_format: 'interstitial'})
+          .then((data) => {
+            if (data.result)
+            {
+              console.log("[VKSDK] Interstitial success");
+              unityI.SendMessage('VKSDK', 'InterstitialFinish');
+            }
+            else
+              console.log("[VKSDK] Interstitial failed");
+          })
+          .catch((error) => {console.log(error); });
+  	  }
+
+      function showRewardedAds ()
+      {
+          console.log("[VKSDK] Show rewarded ADS");
+
+          vkBridge.send('VKWebAppShowNativeAds', {ad_format: 'reward'})
+            .then((data) => {
+              console.log("[VKSDK] Reward finish");
+              unityI.SendMessage('VKSDK', 'OnRewardAction', JSON.stringfy(data.result));
+            })
+            .catch((error) => {console.log(error); });
+      }
+  	</script>
   </head>
   <body>
     <div id="unity-container" class="unity-desktop">
@@ -124,11 +139,13 @@
       document.querySelector("#unity-loading-bar").style.display = "block";
 
       var script = document.createElement("script");
+      var unityI = null;
       script.src = loaderUrl;
       script.onload = () => {
         createUnityInstance(canvas, config, (progress) => {
           document.querySelector("#unity-progress-bar-full").style.width = 100 * progress + "%";
               }).then((unityInstance) => {
+                unityI = unityInstance;
                 document.querySelector("#unity-loading-bar").style.display = "none";
                 document.querySelector("#unity-fullscreen-button").onclick = () => {
                   unityInstance.SetFullscreen(1);
