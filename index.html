@@ -59,8 +59,8 @@
           vkBridge.send('VKWebAppStorageGet', {'keys':['_save']})
             .then((data) => {
               console.log("[VKSDK] Loaded!");
-              console.log(data);
-              unityI.SendMessage('VKSDK', 'OnLoadComplete', JSON.stringify(data));
+              console.log(data.keys[0]);
+              unityI.SendMessage('VKSDK', 'OnLoadComplete', JSON.stringify(data.keys[0]));
             })
             .catch((error) => {console.log(error); });
       }
