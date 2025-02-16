@@ -67,7 +67,7 @@
               else
               {
                 console.log("[VKSDK] No data found for key '_save'");
-                unityI.SendMessage('VKSDK', 'OnLoadComplete', JSON.stringify(null));
+                unityI.SendMessage('VKSDK', 'OnLoadComplete', "");
               }
             })
             .catch((error) => {console.log(error); });
