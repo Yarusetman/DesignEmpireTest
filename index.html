@@ -60,11 +60,11 @@
             .then((data) => {
               console.log("[VKSDK] Loaded!");
               console.log(data);
-              unityI.SendMessage('VKSDK', 'OnLoadComplete', JSON.stringify(data)));
+              unityI.SendMessage('VKSDK', 'OnLoadComplete', JSON.stringify(data));
             })
             .catch((error) => {console.log(error); });
       }
-  </script>
+  	</script>
   </head>
   <body>
     <div id="unity-container" class="unity-desktop">
