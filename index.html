@@ -35,7 +35,7 @@
           vkBridge.send('VKWebAppShowNativeAds', {ad_format: 'reward'})
             .then((data) => {
               console.log("[VKSDK] Reward finish");
-              unityI.SendMessage('VKSDK', 'OnRewardAction', JSON.stringfy(data.result));
+              unityI.SendMessage('VKSDK', 'OnRewardAction', JSON.stringify(data.result));
             })
             .catch((error) => {console.log(error); });
       }
