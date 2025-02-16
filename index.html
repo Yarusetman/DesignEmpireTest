@@ -56,11 +56,19 @@
       {
           console.log("[VKSDK] Load data");
 
-          vkBridge.send('VKWebAppStorageGet', {'keys':['_save']})
+          vkBridge.send('VKWebAppStorageGet', { keys: ['_save'] })
             .then((data) => {
               console.log("[VKSDK] Loaded!");
-              console.log(data.keys['_save'].value);
-              unityI.SendMessage('VKSDK', 'OnLoadComplete', JSON.stringify(data.keys['_save'].value)));
+              if (data.keys?.['_save']?.value)
+              {
+                console.log(data.keys['_save'].value);
+                unityI.SendMessage('VKSDK', 'OnLoadComplete', JSON.stringify(data.keys['_save'].value));
+              }
+              else
+              {
+                console.log("[VKSDK] No data found for key '_save'");
+                unityI.SendMessage('VKSDK', 'OnLoadComplete', JSON.stringify(null));
+              }
             })
             .catch((error) => {console.log(error); });
       }
