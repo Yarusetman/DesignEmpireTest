@@ -39,7 +39,31 @@
             })
             .catch((error) => {console.log(error); });
       }
-  	</script>
+
+      function saveUserData (data)
+      {
+          console.log("[VKSDK] Save data");
+          console.log(data);
+
+          vkBridge.send('VKWebAppStorageSet', {'key': '_save', 'value': data})
+            .then((_info) => {
+              console.log("[VKSDK] Saved!");
+            })
+            .catch((error) => {console.log(error); });
+      }
+
+      function loadUserData ()
+      {
+          console.log("[VKSDK] Load data");
+
+          vkBridge.send('VKWebAppStorageGet', {'keys':['_save']})
+            .then((data) => {
+              console.log("[VKSDK] Loaded!");
+              console.log(data);
+              unityI.SendMessage('VKSDK', 'OnLoadComplete', JSON.stringify(data));
+            })
+            .catch((error) => {console.log(error); });
+      }
   </head>
   <body>
     <div id="unity-container" class="unity-desktop">
