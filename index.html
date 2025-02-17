@@ -187,6 +187,7 @@
           vkBridge.send('VKWebAppStorageGet', { keys: ['_save'] })
             .then((data) => {
               console.log("[VKSDK] Loaded!");
+              console.log(data);
               if (data.keys?.['_save']?.value)
               {
                 console.log(data.keys['_save'].value);
