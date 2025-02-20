@@ -170,25 +170,24 @@
 
       function saveUserData (data)
       {
-          console.log("[VKSDK] Save data");
-          console.log(data);
+        console.log("[VKSDK] Save data");
+        console.log(data);
 
-          var jsonData = UTF8ToString(data);
-          var parsedData = JSON.parse(jsonData);
-
-          var keys = Object.keys(parsedData);
-          var storageData = keys.map(key => ({
-              key: key,
-              value: parsedData[key]
-          }));
-          
-          vkBridge.send('VKWebAppStorageSet', { keys: storageData })
-            .then((response) => {
-                console.log("[VKSDK] Data saved successfully:", response);
+        const storageData = Object.keys(data).map(key => ({
+          key: key,
+          value: data[key]
+        }));
+        
+        for (let i = 0; i < storageData.length; i++) {
+          const item = storageData[i];
+          vkBridge.send('VKWebAppStorageSet', { 'key': item.key, 'value': item.value })
+            .then((_info) => {
+                console.log(`[VKSDK] Key "${item.key}" saved!`);
             })
             .catch((error) => {
-                console.error("[VKSDK] Error saving data:", error);
+              console.error(`[VKSDK] Error saving key "${item.key}":`, error);
           });
+        }
       }
 
       function loadUserData ()
