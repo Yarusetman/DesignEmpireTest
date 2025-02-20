@@ -171,13 +171,17 @@
       function saveUserData (data)
       {
         console.log("[VKSDK] Save data");
-        console.log(data);
 
-        const storageData = Object.keys(data).map(key => ({
-          key: key,
-          value: data[key]
+        var jsonData = Pointer_stringify(data);
+        var parsedData = JSON.parse(jsonData);
+
+        var keys = Object.keys(parsedData);
+        var storageData = keys.map(key => ({
+            key: key,
+            value: parsedData[key]
         }));
-        
+
+        console.log(`[VKSDK] Storage data length "${storageData.length}"!`);
         for (let i = 0; i < storageData.length; i++) {
           const item = storageData[i];
           vkBridge.send('VKWebAppStorageSet', { 'key': item.key, 'value': item.value })
