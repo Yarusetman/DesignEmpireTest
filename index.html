@@ -191,42 +191,32 @@
       {
         console.log("[VKSDK] Load data");
 
-        vkBridge.send('VKWebAppStorageGetKeys', { count: 50,  offset: 0})
-          .then((keysData) => {
-            if (keysData.keys) {
-              // Названия переменных получены
-              vkBridge.send('VKWebAppStorageGet', { keys: keysData.keys })
-                .then((data) => {
-                  console.log("[VKSDK] Loaded!");
-                  console.log(data);
+        vkBridge.send('VKWebAppStorageGet', { keys: ['base_data', 'saved_room_1', 'saved_room_2', 'saved_room_3'] })
+          .then((data) => {
+            console.log("[VKSDK] Loaded!");
+            console.log(data);
 
-                  const loadedData = {};
+            const loadedData = {};
 
-                  if (data.keys) {
-                      data.keys.forEach(item => {
-                          if (item.value) {
-                              loadedData[item.key] = item.value;
-                          }
-                      });
-                  }
-
-                  if (Object.keys(loadedData).length > 0) {
-                    console.log("[VKSDK] Loaded data:", loadedData);
-                    unityI.SendMessage('VKSDK', 'OnLoadComplete', JSON.stringify(loadedData));
-                  } else {
-                    console.log("[VKSDK] No data found for the specified keys");
-                    unityI.SendMessage('VKSDK', 'OnLoadComplete', "");
-                  }
-                })
-                .catch((error) => {
-                  console.error("[VKSDK] Error loading data:", error);
+            if (data.keys) {
+                data.keys.forEach(item => {
+                    if (item.value) {
+                        loadedData[item.key] = item.value;
+                    }
                 });
+            }
+
+            if (Object.keys(loadedData).length > 0) {
+              console.log("[VKSDK] Loaded data:", loadedData);
+              unityI.SendMessage('VKSDK', 'OnLoadComplete', JSON.stringify(loadedData));
+            } else {
+              console.log("[VKSDK] No data found for the specified keys");
+              unityI.SendMessage('VKSDK', 'OnLoadComplete', "");
             }
           })
           .catch((error) => {
-            // Ошибка
-            console.log(error);
-          });        
+            console.error("[VKSDK] Error loading data:", error);
+          });
       }
     </script>
   </body>
