@@ -173,21 +173,16 @@
         console.log("[VKSDK] Save data");
 
         var parsedData = JSON.parse(data);
-        var keys = Object.keys(parsedData);
-        var storageData = keys.map(key => ({
-            key: key,
-            value: parsedData[key]
-        }));
+        console.log(`[VKSDK] Parsed data = "${parsedData}"`);
 
-        console.log(`[VKSDK] Storage data length "${storageData.length}"!`);
-        for (let i = 0; i < storageData.length; i++) {
-          const item = storageData[i];
-          vkBridge.send('VKWebAppStorageSet', { 'key': item.key, 'value': item.value })
+        for (var key in parsedData) {
+          console.log(key + ": " + parsedData[key]);
+          vkBridge.send('VKWebAppStorageSet', { 'key': key, 'value': parsedData[key] })
             .then((_info) => {
-                console.log(`[VKSDK] Key "${item.key}" saved!`);
+                console.log(`[VKSDK] Key "${key}" saved!`);
             })
             .catch((error) => {
-              console.error(`[VKSDK] Error saving key "${item.key}":`, error);
+              console.error(`[VKSDK] Error saving key "${key}":`, error);
           });
         }
       }
