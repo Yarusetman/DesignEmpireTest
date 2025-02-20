@@ -172,9 +172,7 @@
       {
         console.log("[VKSDK] Save data");
 
-        var jsonData = Pointer_stringify(data);
-        var parsedData = JSON.parse(jsonData);
-
+        var parsedData = JSON.parse(data);
         var keys = Object.keys(parsedData);
         var storageData = keys.map(key => ({
             key: key,
