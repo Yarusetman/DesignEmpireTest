@@ -189,20 +189,18 @@
 
       async function loadUserData () {
           try {
-              // Шаг 1: Получаем список ключей
               const keysResponse = await vkBridge.send('VKWebAppStorageGetKeys', { count: 100, offset: 0 });
+
+              if (!keysResponse.keys || keysResponse.keys.length === 0) {
+                console.log("[VKSDK] No keys found.");
+                unityI.SendMessage('VKSDK', 'OnLoadComplete', "");
+                return;
+              }
+
               console.log("[VKSDK] Keys loaded:", keysResponse.keys);
-
-              // Шаг 2: Извлекаем ключи из ответа
-              //const keys = keysResponse.keys.map(item => item.key);
-              //console.log("[VKSDK] Keys", Keys);
-
-              console.log("[VKSDK] Start load keys data");
-              // Шаг 3: Загружаем данные по ключам
               const dataResponse = await vkBridge.send('VKWebAppStorageGet', { keys: keysResponse.keys });
               console.log("[VKSDK] Data loaded:", dataResponse);
 
-              // Обработка данных
               if (dataResponse.keys) {
                   const loadedData = {};
                   dataResponse.keys.forEach(item => {
@@ -219,6 +217,7 @@
               }
           } catch (error) {
               console.error("[VKSDK] Error loading data:", error);
+              unityI.SendMessage('VKSDK', 'OnLoadComplete', "");
           }
       }
 
