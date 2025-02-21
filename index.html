@@ -195,6 +195,7 @@
 
               // Шаг 2: Извлекаем ключи из ответа
               const keys = keysResponse.keys.map(item => item.key);
+              console.log("[VKSDK] Keys", Keys);
 
               // Шаг 3: Загружаем данные по ключам
               const dataResponse = await vkBridge.send('VKWebAppStorageGet', { keys: keys });
