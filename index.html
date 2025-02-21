@@ -194,11 +194,12 @@
               console.log("[VKSDK] Keys loaded:", keysResponse.keys);
 
               // Шаг 2: Извлекаем ключи из ответа
-              const keys = keysResponse.keys.map(item => item.key);
-              console.log("[VKSDK] Keys", Keys);
+              //const keys = keysResponse.keys.map(item => item.key);
+              //console.log("[VKSDK] Keys", Keys);
 
+              console.log("[VKSDK] Start load keys data");
               // Шаг 3: Загружаем данные по ключам
-              const dataResponse = await vkBridge.send('VKWebAppStorageGet', { keys: keys });
+              const dataResponse = await vkBridge.send('VKWebAppStorageGet', { keys: keysResponse.keys });
               console.log("[VKSDK] Data loaded:", dataResponse);
 
               // Обработка данных
