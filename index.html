@@ -193,7 +193,8 @@
 
         vkBridge.send('VKWebAppStorageGet', { keys: [
           'base_data', 'collections', 'inapps', 'prefs', 'pets', 'IntPrefs', 'StringPrefs',
-          'saved_room_1', 'saved_room_2', 'saved_room_3', 'saved_room_4', 'saved_room_5'] })
+          'saved_room_0', 'saved_room_1', 'saved_room_2', 'saved_room_3', 'saved_room_4',
+          'saved_room_5'] })
           .then((data) => {
             console.log("[VKSDK] Loaded!");
             console.log(data);
